@@ -5,7 +5,7 @@ pipeline {
         GIT_CREDENTIALS = credentials('github-token')
     }
 
-   
+      stages{
         stage('Checkout') {
             steps {
 
@@ -20,6 +20,7 @@ pipeline {
 
             }
         }
+      }
 
      
 }
