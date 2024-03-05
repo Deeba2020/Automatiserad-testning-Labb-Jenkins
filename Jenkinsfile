@@ -11,6 +11,12 @@ pipeline {
     }
 
     stages {
+        stage('Declarative checkout SCM') {
+            steps {
+                // Declarative checkout SCM
+                checkout scm
+            }
+        }
         stage('Checkout') {
             steps {
 
