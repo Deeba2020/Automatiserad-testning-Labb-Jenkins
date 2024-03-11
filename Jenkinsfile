@@ -25,8 +25,10 @@ pipeline {
     steps {
         bat 'mvn -f "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\TrialRunnerTDD\\pom.xml" test'
     }
+   }
 
-    post {
+
+    stage('PostTest') {
         always {
             jacoco(
                 execPattern: 'target/*.exec',
@@ -37,7 +39,7 @@ pipeline {
             junit '**/TEST*.xml'
         }
     }
-}
+
 
 
     }
