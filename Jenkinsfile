@@ -13,6 +13,13 @@ pipeline {
                 }
             }
         }
+
+         stage('Build') {
+            steps {
+                bat "mvn compile"
+            }
+        }
+        
     }
 }
 
