@@ -16,7 +16,8 @@ pipeline {
 
          stage('Build') {
             steps {
-                 bat 'mvn -f "file:///D:/GitProjects/Automatiserad%20testning%20%E2%80%93%20Labb%20Jenkins/LabbJenkins/TrialRunnerTDD/pom" compile'
+                mvn -f "D:/GitProjects/Automatiserad0testning08030Labb0Jenkins/LabbJenkins/TrialRunnerTDD/pom.xml" compile
+
             }
         }
 
