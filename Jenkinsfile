@@ -13,6 +13,32 @@ pipeline {
                 }
             }
         }
+
+         stage('Build') {
+            steps {
+                bat 'mvn -f "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\TrialRunnerTDD\\pom.xml" compile'
+
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat "mvn test"
+            }
+
+            post {
+                always {
+                    jacoco(
+                        execPattern: 'target/*.exec',
+                        classPattern: 'target/classes',
+                        sourcePattern: 'src/main/java',
+                        exclusionPattern: 'src/test*',
+                    )
+                    junit '**/TEST*.xml'
+                }
+            }
+        }
+
     }
 }
 
