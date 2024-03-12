@@ -14,10 +14,9 @@ pipeline {
             }
         }
 
-         stage('BuildTrailRunner') {
+        stage('BuildTrailRunner') {
             steps {
                 bat 'mvn -f "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\TrialRunnerTDD\\pom.xml" compile'
-
             }
         }
 
@@ -27,46 +26,35 @@ pipeline {
             }
         }
 
-
         stage('TestResultTrailRunner') {
             steps {
-                script{
-                jacoco(
-                    execPattern: 'target/*.exec',
-                    classPattern: 'target/classes',
-                    sourcePattern: 'src/main/java',
-                    exclusionPattern: 'src/test*',
-                )
-                junit '**/TEST*.xml'
+                script {
+                    jacoco(
+                        execPattern: 'target/*.exec',
+                        classPattern: 'target/classes',
+                        sourcePattern: 'src/main/java',
+                        exclusionPattern: 'src/test*',
+                    )
+                    junit '**/TEST*.xml'
                 }
             }
         }
-
 
         stage('RunRobot') {
             steps {
-                script{
-
+                script {
                     bat 'robot "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\Selenium\\SeleniumLab1.robot"'
-
                 }
             }
-        }
-
-
-
-        stage('TestResultRobot') {
-        steps {
-            script{
-               robot (
+            post {
+                always {
+                    robot (
                         outputPath: 'C:\\Users\\Administrator\\PycharmProjects\\pythonProject1\\log\\output.xml',
                         logPath: 'C:\\Users\\Administrator\\PycharmProjects\\pythonProject1\\log\\log.html',
                         reportPath: 'C:\\Users\\Administrator\\PycharmProjects\\pythonProject1\\log\\report.html'
                     )
+                }
             }
         }
     }
-    
 }
-
-
