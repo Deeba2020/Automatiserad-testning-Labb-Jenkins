@@ -55,7 +55,7 @@ pipeline {
 
 
 
-        stage('TestResultTrailRunner') {
+        stage('TestResultRobot') {
         steps {
             script{
                robot (
