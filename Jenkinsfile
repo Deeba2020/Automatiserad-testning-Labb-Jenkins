@@ -51,6 +51,17 @@ pipeline {
 
             }
         }
+
+        post {
+                always {
+                    
+                    robot (
+                        outputPath: 'C:\\Users\\Administrator\\PycharmProjects\\pythonProject1\\log\\output.xml',
+                        logPath: 'C:\\Users\\Administrator\\PycharmProjects\\pythonProject1\\log\\log.html',
+                        reportPath: 'C:\\Users\\Administrator\\PycharmProjects\\pythonProject1\\log\\report.html'
+                    )
+                }
+
     }
 
 
