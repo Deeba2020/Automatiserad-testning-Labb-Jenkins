@@ -21,51 +21,52 @@ pipeline {
             }
         }
 
-   stage('TestTrailRunner') {
-    steps {
-        bat 'mvn -f "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\TrialRunnerTDD\\pom.xml" test'
-    }
-   }
-
-
-    stage('TestResultTrailRunner') {
-        steps {
-            script{
-            jacoco(
-                execPattern: 'target/*.exec',
-                classPattern: 'target/classes',
-                sourcePattern: 'src/main/java',
-                exclusionPattern: 'src/test*',
-            )
-            junit '**/TEST*.xml'
-            }
-        }
-    }
-
-
-    stage('RunRobot') {
-        steps {
-            script{
-
-                bat 'robot "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\Selenium\\SeleniumLab1.robot"'
-
+        stage('TestTrailRunner') {
+            steps {
+                bat 'mvn -f "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\TrialRunnerTDD\\pom.xml" test'
             }
         }
 
-        post {
-                always {
-                    
-                    robot (
+
+        stage('TestResultTrailRunner') {
+            steps {
+                script{
+                jacoco(
+                    execPattern: 'target/*.exec',
+                    classPattern: 'target/classes',
+                    sourcePattern: 'src/main/java',
+                    exclusionPattern: 'src/test*',
+                )
+                junit '**/TEST*.xml'
+                }
+            }
+        }
+
+
+        stage('RunRobot') {
+            steps {
+                script{
+
+                    bat 'robot "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\Selenium\\SeleniumLab1.robot"'
+
+                }
+            }
+        }
+
+
+
+        stage('TestResultTrailRunner') {
+        steps {
+            script{
+               robot (
                         outputPath: 'C:\\Users\\Administrator\\PycharmProjects\\pythonProject1\\log\\output.xml',
                         logPath: 'C:\\Users\\Administrator\\PycharmProjects\\pythonProject1\\log\\log.html',
                         reportPath: 'C:\\Users\\Administrator\\PycharmProjects\\pythonProject1\\log\\report.html'
                     )
-                }
-
+            }
         }
-
-
     }
+    
 }
 
 
