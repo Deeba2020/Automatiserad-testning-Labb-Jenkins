@@ -29,7 +29,8 @@ pipeline {
 
 
     stage('PostTest') {
-        always {
+        steps {
+            script{
             jacoco(
                 execPattern: 'target/*.exec',
                 classPattern: 'target/classes',
@@ -37,6 +38,7 @@ pipeline {
                 exclusionPattern: 'src/test*',
             )
             junit '**/TEST*.xml'
+            }
         }
     }
 
