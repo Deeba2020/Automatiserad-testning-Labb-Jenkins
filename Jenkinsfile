@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('BranchCheckout') {
             steps {
                 script {
                     if (params.gitBranch == 'main') {
@@ -14,21 +14,21 @@ pipeline {
             }
         }
 
-         stage('Build') {
+         stage('BuildTrailRunner') {
             steps {
                 bat 'mvn -f "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\TrialRunnerTDD\\pom.xml" compile'
 
             }
         }
 
-   stage('Test') {
+   stage('TestTrailRunner') {
     steps {
         bat 'mvn -f "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\TrialRunnerTDD\\pom.xml" test'
     }
    }
 
 
-    stage('PostTest') {
+    stage('TestResultTrailRunner') {
         steps {
             script{
             jacoco(
