@@ -45,14 +45,19 @@ pipeline {
                 script {
                     bat 'robot "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\Selenium\\SeleniumLab1.robot"'
                 }
-            }
-            post {
-                always {
-                    robot (
-                        outputPath: 'C:\\Users\\Administrator\\PycharmProjects\\pythonProject1\\log\\output.xml',
-                        logPath: 'C:\\Users\\Administrator\\PycharmProjects\\pythonProject1\\log\\log.html',
-                        reportPath: 'C:\\Users\\Administrator\\PycharmProjects\\pythonProject1\\log\\report.html'
-                    )
+                post {
+                    always {
+                        robot (
+                            outputPath: 'output',
+                            outputFileName: 'output.xml',
+                            reportFileName: 'report.html',
+                            logFileName: 'log.html',
+                            logLevel: 'TRACE',
+                            passThreshold: 90,
+                            unstableThreshold: 60,
+                            otherFiles: 'C:\\Users\\Administrator\\PycharmProjects\\pythonProject1\\log'
+                        )
+                    }
                 }
             }
         }
