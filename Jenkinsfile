@@ -51,8 +51,8 @@ pipeline {
         stage('TestResultRobot') {
                 steps {
                     robot(
-                       log: '**/log.html', 
-                       report: '**/report.html'  
+                       logFileName: '**/log.html', 
+                       outputPath: '**/report.html'  
                     )
                     
                     junit '**/output.xml'
