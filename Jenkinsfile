@@ -50,7 +50,9 @@ pipeline {
                     always {
                         
                         robot (
-                            outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\output.xml', 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\log.html','C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\report.html'
+                            outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\output.xml',
+                            logPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\log.html',
+                            reportPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\report.html'
                         )
                     }
 
