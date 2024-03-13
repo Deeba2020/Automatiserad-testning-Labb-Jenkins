@@ -48,15 +48,6 @@ pipeline {
             }
         }
 
-        stage('TestResultRobot') {
-                steps {
-                    robot(
-                       logFileName: '**/log.html', 
-                       outputPath: '**/report.html'  
-                    )
-                    
-                    junit '**/output.xml'
-                 }
-        }
+        
     }
 }
