@@ -52,9 +52,9 @@ pipeline {
             steps {
                 script {
                     robot (
-                        output: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\output.xml',
-                        log: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\log.html',
-                        report: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\report.html'
+                        outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\output.xml',
+                        logPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\log.html',
+                        reportPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\report.html'
                     )
                 }
             }
