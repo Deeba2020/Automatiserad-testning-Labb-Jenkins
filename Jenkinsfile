@@ -51,8 +51,8 @@ pipeline {
                         
                         robot (
                             outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\output.xml',
-                            outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\log.html',
-                            outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\report.html'
+                            log: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\log.html',
+                            report: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\report.html'
                         )
                     }
 
