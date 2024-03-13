@@ -54,7 +54,11 @@ pipeline {
                     robot(
                         
                         Output: ' C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\output.xml'
+                    )
+                    robot(
                         Log:     'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\log.html'
+                    )
+                    robot(
                         Report:  'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\report.html'
                     )
                 }
