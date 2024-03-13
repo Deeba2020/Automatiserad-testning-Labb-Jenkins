@@ -50,8 +50,12 @@ pipeline {
 
         stage('TestResultRobot') {
                 steps {
+                    robot(
+                       log: '**/log.html', 
+                       report: '**/report.html'  
+                    )
                     
-                    junit testResults: ['**/output.xml', '**/log.html', '**/report.html']
+                    junit '**/output.xml'
                  }
         }
     }
