@@ -45,30 +45,19 @@ pipeline {
                 script {
                     bat 'robot "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\Selenium\\SeleniumLab1.robot"'
                 }
-
+            }
         }
 
         stage('TestResultRobot') {
             steps {
                 script {
-                    robot(
-                        
-                        Output: ' C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\output.xml'
-                    )
-                    robot(
-                        Log:     'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\log.html'
-                    )
-                    robot(
-                        Report:  'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\report.html'
+                    robot (
+                        output: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\output.xml',
+                        log: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\log.html',
+                        report: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\report.html'
                     )
                 }
             }
         }
-
-
-
-
-
-
     }
 }
