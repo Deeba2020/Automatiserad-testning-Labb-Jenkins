@@ -55,6 +55,7 @@ pipeline {
                         outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\output.xml',
                         logPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\log.html',
                         reportPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\report.html'
+                        
                     )
                 }
             }
