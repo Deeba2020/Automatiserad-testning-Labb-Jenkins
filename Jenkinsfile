@@ -50,5 +50,11 @@ pipeline {
         }
 
         
+        stage('Archive Robot Output') {
+         archiveArtifacts 'D:\\Selenium/*'
+
+        }
+
+        
     }
 }
