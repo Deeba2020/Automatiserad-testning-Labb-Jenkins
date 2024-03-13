@@ -43,7 +43,8 @@ pipeline {
         stage('RunRobot') {
             steps {
                 script {
-                    bat 'robot "C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\Selenium\\SeleniumLab1.robot"'
+                    bat 'robot "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\Selenium\\SeleniumLab1.robot"'
+                    
                 }
             }
         }
