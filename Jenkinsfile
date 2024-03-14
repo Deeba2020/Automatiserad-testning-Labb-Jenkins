@@ -48,24 +48,29 @@ pipeline {
                     }
                 }
 
-
                 post {
                     always {
-                        
-                        robot (
-                            outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba',
-                        )   
+                    
+                        archiveArtifacts 'D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\Selenium/*'
                     }
-
                 }
 
         }
 
 
+        stage('PostRobotResult') {
+            always {
+                
+                robot (
+                    outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba',
+                )   
+            }
+
+        }
+
+    
         
 
-        
-       
         
     }
 }
