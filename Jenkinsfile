@@ -41,36 +41,27 @@ pipeline {
         }
 
         stage('RunRobot') {
-                steps {
-                    script {
-                        bat 'robot "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\Selenium\\SeleniumLab1.robot"'
-                        
-                    }
+            steps {
+                script {
+                    bat 'robot "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\Selenium\\SeleniumLab1.robot"'
                 }
-
-                post {
-                    always {
-                    
-                        archiveArtifacts 'D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\Selenium/*'
-                    }
-                }
-
-        }
-
-
-        stage('PostRobotResult') {
-            always {
-                
-                robot (
-                    outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba',
-                )   
             }
 
+            post {
+                always {
+                    archiveArtifacts 'D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\Selenium/*'
+                }
+            }
         }
 
-    
-        
-
-        
+        stage('PostRobotResult') {
+            steps {
+                script {
+                    robot (
+                        outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba'
+                    )
+                }
+            }
+        }
     }
 }
