@@ -1,15 +1,15 @@
-.exec
-.lst
-.html
-.css
-.js
-.css
-.js
-.html
-.xml
-.txt
-.class
-.dumpstream
+*.exec
+*.lst
+*.html
+*.css
+*.js
+*.css
+*.js
+*.html
+*.xml
+*.txt
+*.class
+*.dumpstream
 
 
 
