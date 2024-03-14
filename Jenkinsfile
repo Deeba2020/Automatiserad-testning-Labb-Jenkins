@@ -33,7 +33,7 @@ pipeline {
                         execPattern: 'target/*.exec',
                         classPattern: 'target/classes',
                         sourcePattern: 'src/main/java',
-                        exclusionPattern: 'src/test*',
+                        exclusionPattern: 'src/test*'
                     )
                     junit '**/TEST*.xml'
                 }
@@ -41,26 +41,18 @@ pipeline {
         }
 
         stage('RunRobot') {
-                steps {
-                    script {
-                        bat 'robot "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\Selenium\\SeleniumLab1.robot"'
-                        
-                    }
+            steps {
+                script {
+                    bat 'robot "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\Selenium\\SeleniumLab1.robot"'
                 }
-
-
-                post {
-                    always {
-                        
-                        robot (
-                            outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba',
-                        )   
-                    }
-
+            }
+            post {
+                always {
+                    robot (
+                        outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba'
+                    )   
                 }
-
+            }
         }
-
-        
     }
 }
