@@ -58,7 +58,7 @@ pipeline {
             steps {
                 script {
                     robot (
-                        outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba'
+                        outputPath: 'D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\Selenium'
                     )
                 }
             }
