@@ -14,7 +14,7 @@ pipeline {
             }
         }
 
-        stage('BuildTrailRunner') {
+        stage('BuildTrail') {
             steps {
                 bat 'mvn -f "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\TDDprojectJenkins\\pom.xml" compile'
             }
