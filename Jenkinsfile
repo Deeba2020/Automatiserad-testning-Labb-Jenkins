@@ -60,5 +60,11 @@ pipeline {
                 echo 'to test Triggering a build by adding a new stage'
             }
         }
+
+        stage('TriggerBuildSecond') {
+            steps {
+                echo 'hi just testing triggering build'
+            }
+        }
     }
 }
