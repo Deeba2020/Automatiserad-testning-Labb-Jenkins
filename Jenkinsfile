@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    parameters {
-      choice(name: 'gitBranch', choices: ['main', 'b1'], description: 'Select the Git branch')
-    }
-
-
     stages {
         stage('BranchCheckout') {
             steps {
