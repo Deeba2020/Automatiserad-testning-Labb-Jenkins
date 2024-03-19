@@ -3,6 +3,15 @@ pipeline {
 
     stages {
 
+        stage('BranchCheckout') {
+            steps {
+                script {
+                    // Checkout the selected branch from Git based on the parameter value
+                    checkout([$class: 'GitSCM', branches: [[name: params.gitBranch]], userRemoteConfigs: [[url: 'https://github.com/Deeba2020/Automatiserad-testning-Labb-Jenkins.git']]])
+                }
+            }
+        }
+
         stage('BuildTrailRunner') {
             steps {
                 bat 'mvn -f "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\TDDprojectJenkins\\pom.xml" compile'
