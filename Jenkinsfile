@@ -49,7 +49,7 @@ pipeline {
             }
         }
 
-        stage('RunRobot') {
+        stage('PostRobot') {
             steps {
                 robot (
                     outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba'
