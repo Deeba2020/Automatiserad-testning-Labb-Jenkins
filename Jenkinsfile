@@ -2,17 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('BranchCheckout') {
-            steps {
-                script {
-                    if (params.gitBranch == 'main') {
-                        echo 'on main branch'
-                    } else {
-                        echo 'on b1 branch'
-                    }
-                }
-            }
-        }
 
         stage('BuildTrailRunner') {
             steps {
