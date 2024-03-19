@@ -2,21 +2,19 @@ pipeline {
     agent any
 
     stages {
-
         stage('BranchCheckout') {
             steps {
                 script {
                     if (params.gitBranch == 'main') {
                         git branch: 'main', url: 'https://github.com/Deeba2020/Automatiserad-testning-Labb-Jenkins.git'
-                        echo 'on main branch'
+                        echo 'Checked out main branch'
                     } else {
                         git branch: 'b1', url: 'https://github.com/Deeba2020/Automatiserad-testning-Labb-Jenkins.git'
-                        echo 'on b1 branch'
+                        echo 'Checked out b1 branch'
                     }
                 }
             }
         }
-        
 
         stage('BuildTrailRunner') {
             steps {
@@ -44,31 +42,22 @@ pipeline {
             }
         }
 
-        stage('RunRobot') {
+        stage('RunRobotTest') {
             steps {
                 script {
                     bat 'robot "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\AutomatiseradTestningLabb1\\SeleniumLab1.robot"'
                 }
-            
             }
         }
 
-        stage('RunRobot') {
+        stage('PostRobotTest') {
             steps {
                 script {
-                    bat 'robot "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\AutomatiseradTestningLabb1\\SeleniumLab1.robot"'
-                }
-            }
-            post {
-                always {
                     robot (
                         outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba'
                     )   
                 }
             }
         }
-            
-
-    
     }
 }
