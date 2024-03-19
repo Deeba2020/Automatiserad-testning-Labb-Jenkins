@@ -8,10 +8,12 @@ pipeline {
                 script {
                     if (params.gitBranch == 'main') {
                         git branch: 'main', url: 'https://github.com/Deeba2020/Automatiserad-testning-Labb-Jenkins.git'
-                        echo 'on main branch'
+
+                        echo 'Checked out main branch'
                     } else {
                         git branch: 'b1', url: 'https://github.com/Deeba2020/Automatiserad-testning-Labb-Jenkins.git'
-                        echo 'on b1 branch'
+                        echo 'Checked out b1 branch'
+
                     }
                 }
             }
@@ -44,7 +46,7 @@ pipeline {
             }
         }
 
-        stage('RunRobot') {
+        stage('RunRobotTest') {
             steps {
                 script {
                     bat 'robot "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\AutomatiseradTestningLabb1\\SeleniumLab1.robot"'
@@ -53,16 +55,15 @@ pipeline {
             }
         }
 
-        stage('PostRobot') {
+        stage('PostRobotTest') {
             steps {
-                robot (
-                    outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba'
-                )   
-            
+                script {
+                    robot (
+                        outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba'
+                    )   
+                }
             }
         }
-            
 
-    
     }
 }
