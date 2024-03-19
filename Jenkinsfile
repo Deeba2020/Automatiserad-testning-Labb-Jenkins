@@ -45,15 +45,19 @@ pipeline {
                 script {
                     bat 'robot "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\AutomatiseradTestningLabb1\\SeleniumLab1.robot"'
                 }
-            }
-            post {
-                always {
-                    robot (
-                        outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba'
-                    )   
-                }
+            
             }
         }
+
+        stage('RunRobot') {
+            steps {
+                robot (
+                    outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba'
+                )   
+            
+            }
+        }
+            
 
     
     }
