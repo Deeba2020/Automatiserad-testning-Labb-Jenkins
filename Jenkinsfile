@@ -3,16 +3,6 @@ pipeline {
 
     stages {
 
-        stage('BranchCheckout') {
-            steps {
-                script {
-                  checkout scmGit(branches: [[name: '*/main'], [name: '*/b1']], extensions: [], userRemoteConfigs: [[]])
-
-                }
-            }
-        }
-        
-
         stage('BuildTrailRunner') {
             steps {
                 bat 'mvn -f "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\TDDprojectJenkins\\pom.xml" compile'
