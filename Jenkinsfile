@@ -6,11 +6,17 @@ pipeline {
         stage('BranchCheckout') {
             steps {
                 script {
-                    // Checkout the selected branch from Git based on the parameter value
-                    checkout([$class: 'GitSCM', branches: [[name: params.gitBranch]], userRemoteConfigs: [[url: 'https://github.com/Deeba2020/Automatiserad-testning-Labb-Jenkins.git']]])
+                    if (params.gitBranch == 'main') {
+                        git branch: 'main', url: 'https://github.com/Deeba2020/Automatiserad-testning-Labb-Jenkins.git'
+                        echo 'on main branch'
+                    } else {
+                        git branch: 'b1', url: 'https://github.com/Deeba2020/Automatiserad-testning-Labb-Jenkins.git'
+                        echo 'on b1 branch'
+                    }
                 }
             }
         }
+        
 
         stage('BuildTrailRunner') {
             steps {
