@@ -3,8 +3,19 @@ pipeline {
 
     stages {
 
-        
-        
+
+        stage('branchUsed') {
+            steps {
+                script {
+                    if (params.branch == 'main') {
+                        echo 'Checked out main branch'
+                    } else {
+                        echo 'Checked out b1 branch'
+
+                    }
+                }
+            }
+        }
 
         stage('BuildTrailRunner') {
             steps {
