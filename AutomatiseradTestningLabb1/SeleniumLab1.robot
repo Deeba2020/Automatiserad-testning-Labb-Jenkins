@@ -7,7 +7,7 @@ Library    Collections
 *** Variables ***
 ${login-E-mail}        //input[@id='email']
 ${loginButton}     //button[@id='login']
-${primaryEmail}        deebarf@gmail.com
+${primaryEmail}        deebarf@gmail.comCOM
 ${primaryPassword}        infotiv2024
 ${continueButton}       //button[@id='continue']
 ${backToDate}       //button[@id='backToDateButton']
