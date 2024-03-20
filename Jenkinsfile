@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -47,14 +48,14 @@ pipeline {
                 }
             }
         }
+    }
 
-        stage('PostRobotTest') {
-            steps {
-                script {
-                    robot (
-                        outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba'
-                    )   
-                }
+    post {
+        always {
+            script {
+                robot (
+                    outputPath: 'C:\\Users\\Administrator\\.jenkins\\workspace\\Deba'
+                )   
             }
         }
     }
