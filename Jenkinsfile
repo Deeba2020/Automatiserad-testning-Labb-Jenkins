@@ -5,10 +5,10 @@ pipeline {
         stage('BranchUsed') {
             steps {
                 script {
-                    if (params.branch == 'main') {
-                        echo 'Checked out to the main branch'
-                    } else {
+                    if (params.branch == 'origin/b1') {
                         echo 'Checked out to the b1 branch'
+                    } else {
+                        echo 'Checked out to the main branch'
                     }
                 }
             }
