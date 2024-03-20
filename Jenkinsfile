@@ -16,13 +16,13 @@ pipeline {
 
         stage('BuildTrailRunner') {
             steps {
-                bat 'mvn -f "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\TDDprojectJenkins\\pom.xml" compile'
+                bat 'mvn -f "C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\pom.xml" compile'
             }
         }
 
         stage('TestTrailRunner') {
             steps {
-                bat 'mvn -f "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\TDDprojectJenkins\\pom.xml" test'
+                bat 'mvn -f "C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\pom.xml" test'
             }
         }
 
@@ -43,7 +43,7 @@ pipeline {
         stage('RunRobotTest') {
             steps {
                 script {
-                    bat 'robot "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\AutomatiseradTestningLabb1\\SeleniumLab1.robot"'
+                    bat 'robot "C:\\Users\\Administrator\\.jenkins\\workspace\\Deba\\AutomatiseradTestningLabb1\\SeleniumLab1.robot"'
                 }
             }
         }
