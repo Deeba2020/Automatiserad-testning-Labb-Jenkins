@@ -2,9 +2,17 @@ pipeline {
     agent any
 
     stages {
-
-        
-        
+        stage('BranchUsed') {
+            steps {
+                script {
+                    if (params.branch == 'main') {
+                        echo 'Checked out to the main branch'
+                    } else {
+                        echo 'Checked out to the b1 branch'
+                    }
+                }
+            }
+        }
 
         stage('BuildTrailRunner') {
             steps {
@@ -37,7 +45,6 @@ pipeline {
                 script {
                     bat 'robot "D:\\GitProjects\\Automatiserad testningLabbJenkins\\LabbJenkins\\AutomatiseradTestningLabb1\\SeleniumLab1.robot"'
                 }
-            
             }
         }
 
@@ -50,6 +57,5 @@ pipeline {
                 }
             }
         }
-
     }
 }
