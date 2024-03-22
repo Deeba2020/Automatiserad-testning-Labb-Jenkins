@@ -198,7 +198,7 @@ user can go to the booking car page and select a car
 
 *** Test Cases ***
 login with existing credentials successfuly
-    given website opens correctly and make sure user is not logged in
+    given website opens correctly and make sure user is not logged in hamid
     when user enters correct password and email to log in using existing credentials       ${primaryEmail}      ${primaryPassword}
     and user can click on my page to see booking history
     then user can click log out button after signing in
